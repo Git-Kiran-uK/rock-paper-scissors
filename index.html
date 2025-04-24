@@ -17,12 +17,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>Choose you choice</h1>
-        <div class="btn-container">
-            <button class="btn btn-rock" data-choice="rock">🪨</button>
-            <button class="btn btn-paper" data-choice="paper">📄</button>
-            <button class="btn btn-scissor" data-choice="scissor">✂️</button>
+        <div class="choice-container">
+            <h1>Choose you choice</h1>
+            <div class="btn-container">
+                <button class="btn btn-rock" data-choice="rock">🪨</button>
+                <button class="btn btn-paper" data-choice="paper">📄</button>
+                <button class="btn btn-scissor" data-choice="scissor">✂️</button>
+            </div>
+            <button class="btn btn-submit" id="play">Play</button>
+        </div>
+        <div class="round-result">
+            <div class="user-choice">
+                <h2>Your choice</h2>
+                <div class="choice" id="user">🪨</div>
+            </div>
+            <div class="computer-choice">
+                <h2>Computer's choice</h2>
+                <div class="choice" id="computer">📄</div>
+            </div>
         </div>
     </div>
+    <!-- scripts -->
+    <script src="scripts.js"></script>
 </body>
 </html>
