@@ -4,14 +4,18 @@ const roundResultEl = document.querySelector('.round-result');
 const userEl = document.getElementById('user');
 const computerEl = document.getElementById('computer');
 const playBtnEl = document.getElementById('play');
+let userChoice = '';
 let userScore = 0;
 let computerScore = 0;
 
 document.body.addEventListener('click', (e) => {
     if(e.target.tagName === "BUTTON"){
         if(!playBtnEl.classList.contains('visible')) playBtnEl.classList.add('visible');
-        if(e.target.id !== playBtnEl.id){
+        if(e.target !== playBtnEl){
+            userChoice = e.target.textContent;
             e.target.focus();
+        } else {
+            handleClick(userChoice);
         }
     } else {
         playBtnEl.classList.remove('visible');
@@ -19,8 +23,9 @@ document.body.addEventListener('click', (e) => {
 });
 
 function handleClick(userChoice){
+    console.log(userChoice)
     const computerChoice = getComputerChoice();
-    displayChoices(userChoice,computerChoice);
+    displayChoices(userChoice, computerChoice);
     const userWonRound = isUserWonRound(userChoice, computerChoice);
     handleScore(userWonRound);
 
@@ -63,7 +68,7 @@ function handleScore(isUserWonRound){
     }
 }
 
-function displayChoices(userChoice,computerChoice){
+function displayChoices(userChoice, computerChoice){
     choiceContainerEl.style.display = "none";
     userEl.textContent = userChoice;
     computerEl.textContent = computerChoice;

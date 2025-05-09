@@ -8,13 +8,24 @@ html{
     box-sizing: inherit;
 }
 
+:root{
+    /* font-colors */
+    --font-color-default: #ffffff;
+    --font-color-heading: #ffffff99;
+
+    /* bg-colors */
+    --bg-color-body: #4b4b4b;
+    --bg-color-btn: #383838;
+}
+
 body{
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    color: var(--font-color-default);
     display: grid;
     font-family: "Cal Sans", sans-serif;
-    background-color: #4b4b4b;
+    background-color: var(--bg-color-body);
     text-align: center;
 }
 
@@ -23,14 +34,13 @@ body{
 ================= */
 
 h1{
-    font-size: 2.5rem;
-    color: #ffffff99;
+    font-size: 1.5rem;
+    color: var(--font-color-heading);
     letter-spacing: 1.5px;
-    margin-bottom: 0;
 }
 
 h2{
-    color: #ffffff;
+    font-size: 2.5rem;
     letter-spacing: 1.25px;
 }
 
@@ -38,18 +48,29 @@ h2{
     Layout
 ============ */
 
+.container,
+.round-result,
+.btn-container,
+.rounds-btn-container{
+    display: flex;
+}
+
 .container{
     max-width: 1200px;
     width: 80%;
     margin: auto;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.header-container{
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
 .btn-container{
-    display: flex;
     gap: 1.5em;
     margin-block: 2em;
 }
@@ -58,11 +79,18 @@ h2{
     border: 0;
     background: none;
     font-size: 3rem;
-    background-color: #383838;
+    background-color: var(--bg-color-btn);
     border-radius: 50%;
     padding: 1em;
     box-shadow: 0px 0px 6px #000;
     transition: scale .25s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus{
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #3457999c;
 }
 
 .btn-submit{
@@ -72,15 +100,22 @@ h2{
     color: #ffffff99;
 }
 
-.btn:hover,
-.btn:focus{
-    cursor: pointer;
-    scale: 1.1;
-    background-color: rgba(52, 87, 153, 0.61);
-}
-
 .btn-submit:hover{
     background-color: #00800080;
+}
+
+.rounds-btn-container{
+    align-items: center;
+    gap: 1em;
+}
+
+.btn-rounds{
+    width: 42px;
+    height: 42px;
+    padding: .5em;
+    font-size: 1rem;
+    color: inherit;
+    font-weight: bold;
 }
 
 .visible{

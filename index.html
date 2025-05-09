@@ -16,27 +16,37 @@
     <title>&#x1FAA8; &#x1F4C4; &#x2702;</title>
 </head>
 <body>
-    <div class="container">
-        <div class="choice-container">
-            <h1>Choose you choice</h1>
-            <div class="btn-container">
-                <button class="btn btn-rock" data-choice="rock">🪨</button>
-                <button class="btn btn-paper" data-choice="paper">📄</button>
-                <button class="btn btn-scissor" data-choice="scissor">✂️</button>
-            </div>
-            <button class="btn btn-submit" id="play">Play</button>
+    <header class="container header-container">
+        <h1>RockPaperScissor</h1>
+        <div class="rounds-btn-container">
+            <p>Rounds:</p>
+            <button class="btn btn-rounds" data-value="round">3</button>
+            <button class="btn btn-rounds" data-value="round">5</button>
         </div>
-        <div class="round-result">
-            <div class="user-choice">
-                <h2>Your choice</h2>
-                <div class="choice" id="user">🪨</div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="choice-container">
+                <h2 class="sub-heading">Choose you choice</h1>
+                <div class="btn-container">
+                    <button class="btn btn-rock" data-choice="rock">🪨</button>
+                    <button class="btn btn-paper" data-choice="paper">📄</button>
+                    <button class="btn btn-scissor" data-choice="scissor">✂️</button>
+                </div>
+                <button class="btn btn-submit" id="play">Play</button>
             </div>
-            <div class="computer-choice">
-                <h2>Computer's choice</h2>
-                <div class="choice" id="computer">📄</div>
+            <div class="round-result">
+                <div class="user-choice">
+                    <h2>Your choice</h2>
+                    <div class="choice" id="user">🪨</div>
+                </div>
+                <div class="computer-choice">
+                    <h2>Computer's choice</h2>
+                    <div class="choice" id="computer">📄</div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
     <!-- scripts -->
     <script src="scripts.js"></script>
 </body>
