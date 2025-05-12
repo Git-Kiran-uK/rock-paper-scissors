@@ -31,6 +31,10 @@ document.body.addEventListener('click', (e) => {
             e.target.focus();
         } else {
             handleClick(userChoice);
+            for(let btn of roundsBtn){
+                btn.disabled = true;
+                btn.style.opacity = .5;
+            }
         }
     } else {
         playBtnEl.classList.remove('visible');
