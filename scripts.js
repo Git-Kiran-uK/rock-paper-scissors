@@ -5,6 +5,7 @@ const userEl = document.getElementById('user');
 const computerEl = document.getElementById('computer');
 const playBtnEl = document.getElementById('play');
 const roundsBtn = document.querySelectorAll(`button[data-value="round"]`);
+const roundsEl = document.getElementById('rounds');
 let userScore = 0;
 let gameRounds = 3;
 let userChoice = '';
@@ -13,7 +14,7 @@ let computerScore = 0;
 
 document.body.addEventListener('click', (e) => {
     if(e.target.tagName === "BUTTON"){
-        handleButtonClick(e.target)
+        handleButtonClick(e.target);
     } else {
         playBtnEl.classList.remove('visible');
     }
@@ -21,37 +22,35 @@ document.body.addEventListener('click', (e) => {
 
 function handleButtonClick(button){
     if(button.dataset.value !== 'round'){
-            if(!playBtnEl.classList.contains('visible')) playBtnEl.classList.add('visible');
-        } else {
-            gameRounds = e.target.textContent;
-            for(let btn of roundsBtn){
-                if(e.target === btn){
-                    if(!btn.classList.contains('rounds')) btn.classList.add('rounds');
-                    console.log(gameRounds)
-                } else {
-                    btn.classList.remove('rounds');
-                }
+        if(!playBtnEl.classList.contains('visible')) playBtnEl.classList.add('visible');
+    } else {
+        gameRounds = button.textContent;
+        for(let btn of roundsBtn){
+            if(button === btn){
+                if(!btn.classList.contains('rounds')) btn.classList.add('rounds');
+                console.log(gameRounds)
+            } else {
+                btn.classList.remove('rounds');
             }
         }
-        if(e.target !== playBtnEl){
-            userChoice = e.target.textContent;
-            e.target.focus();
-        } else {
-            handlePlayButtonClick(userChoice);
-            for(let btn of roundsBtn){
-                btn.disabled = true;
-                btn.style.opacity = .5;
-            }
+    }
+    if(button !== playBtnEl){
+        userChoice = button.textContent;
+        button.focus();
+    } else {
+        handlePlayButtonClick(userChoice);
+        for(let btn of roundsBtn){
+            btn.style.display = 'none';
         }
+        roundsEl.insertAdjacentText('beforeend', ` ${gameRounds}`);
+    }
 }
 
 function handlePlayButtonClick(userChoice){
-    console.log(userChoice)
     const computerChoice = getComputerChoice();
     displayChoices(userChoice, computerChoice);
     const userWonRound = isUserWonRound(userChoice, computerChoice);
     handleScore(userWonRound);
-
 }
 
 function getComputerChoice(){
